@@ -8,14 +8,8 @@ import tornado.web
 
 from application import application
 
-class TestHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write("Hello World")
 
 def main():
-    application = tornado.web.Application([
-        (r"/", TestHandler),
-    ])
 
     http_server = tornado.httpserver.HTTPServer(application)
     port = int(os.environ.get("PORT", 5000))
